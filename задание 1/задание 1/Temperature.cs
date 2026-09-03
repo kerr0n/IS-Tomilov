@@ -19,9 +19,9 @@ namespace Задание_1
             _place = place;
             _value = value;
         }
-        public string GetAll()
+        public override string ToString()
         {
-            return $"Дата: {_date.ToString("dd.MM.yyyy")}, место измерения: \"{_place}\", значение: {_value}";
+            return $"Дата: {_date.ToString("yyyy.MM.dd")}, место измерения: {_place}, значение: {_value}";
         }
     }
 }
