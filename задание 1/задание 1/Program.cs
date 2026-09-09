@@ -17,13 +17,15 @@ while (marker)
     {
         marker = false;
     }
-    else
+    else // для примера 2008.04.30 "Место 6" 1,2
     {
         try
         {
             DateOnly date = DateOnly.Parse(str[0..10]);
-            string place = str.Split()[1][1..^1];
-            double temp = double.Parse(str.Split()[2]);
+            int firstQuote = str.IndexOf('"');
+            int lastQuote = str.LastIndexOf('"');
+            string place = str.Substring(firstQuote + 1, lastQuote - firstQuote - 1);
+            double temp = double.Parse(str.Split()[^1]);
             temperatures.Add(new Temperature(date, place, temp));
         }
         catch
