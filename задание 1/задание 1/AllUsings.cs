@@ -55,8 +55,10 @@ namespace задание_1
                 int firstQuote = temp.IndexOf('"');
                 int lastQuote = temp.LastIndexOf('"');
                 string place = temp.Substring(firstQuote + 1, lastQuote - firstQuote - 1);
-                double value = double.Parse(temp.Split()[^1]);
-                Temperatures.Add(new Temperature(date, place, value));
+                double value = double.Parse(temp.Split()[3]);
+                int x = int.Parse(temp.Split()[4]);
+                int y = int.Parse(temp.Split()[5]);
+                Temperatures.Add(new Temperature(date, place, value, x, y));
             }
             catch
             {
