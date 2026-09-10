@@ -21,7 +21,7 @@ namespace Задание_1
         }
         public override string ToString()
         {
-            return $"Дата: {_date.ToString("yyyy.MM.dd")}, место измерения: {_place}, значение: {_value}";
+            return $"{_date.ToString("yyyy.MM.dd")} \"{_place}\" {_value}";
         }
     }
 }
