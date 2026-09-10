@@ -1,31 +1,35 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics.Contracts;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static System.Runtime.InteropServices.JavaScript.JSType;
+using System.Globalization;
 
 namespace задание_1
 {
     public class Temperature
     {
+        private readonly string _type;
         private DateOnly _date;
         private string _place;
         private double _value;
-        private int X;
-        private int Y;
-        public Temperature(DateOnly date, string place, double value, int x, int y)
+        private int _x;
+        private int _y;
+
+        public Temperature(DateOnly date, string place, double value, int x, int y) : this("temperature", date, place, value, x, y)
         {
+        }
+
+        protected Temperature(string type, DateOnly date, string place, double value, int x, int y)
+        {
+            _type = type;
             _date = date;
             _place = place;
             _value = value;
-            X = x;
-            Y = y;
+            _x = x;
+            _y = y;
         }
+
         public override string ToString()
         {
-            return $"{_date.ToString("yyyy.MM.dd")} \"{_place}\" {_value} {X} {Y}";
+            return FormattableString.Invariant(
+                $"{_type} {_date:yyyy.MM.dd} \"{_place}\" {_value} {_x} {_y}");
         }
     }
 }
