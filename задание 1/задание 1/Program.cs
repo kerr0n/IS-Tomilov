@@ -22,19 +22,7 @@ while (marker)
     }
     else // для примера 2008.04.30 "Место 6" 1,2
     {
-        try
-        {
-            DateOnly date = DateOnly.Parse(str[0..10]);
-            int firstQuote = str.IndexOf('"');
-            int lastQuote = str.LastIndexOf('"');
-            string place = str.Substring(firstQuote + 1, lastQuote - firstQuote - 1);
-            double temp = double.Parse(str.Split()[^1]);
-            Temperatures.Add(new Temperature(date, place, temp));
-        }
-        catch
-        {
-            Console.WriteLine("Ошибка ввода");
-        }
+        StringToTemperature(str);
     }
 }
 
@@ -69,18 +57,23 @@ void FromStringToTemperature(List<string> temperatures)
 {
     foreach (string temp in temperatures)
     {
-        try
-        {
-            DateOnly date = DateOnly.Parse(temp[0..10]);
-            int firstQuote = temp.IndexOf('"');
-            int lastQuote = temp.LastIndexOf('"');
-            string place = temp.Substring(firstQuote + 1, lastQuote - firstQuote - 1);
-            double value = double.Parse(temp.Split()[^1]);
-            Temperatures.Add(new Temperature(date, place, value));
-        }
-        catch
-        {
-            Console.WriteLine("Ошибка обработки строки");
-        }
+        StringToTemperature(temp);
+    }
+}
+
+void StringToTemperature(string temp)
+{
+    try
+    {
+        DateOnly date = DateOnly.Parse(temp[0..10]);
+        int firstQuote = temp.IndexOf('"');
+        int lastQuote = temp.LastIndexOf('"');
+        string place = temp.Substring(firstQuote + 1, lastQuote - firstQuote - 1);
+        double value = double.Parse(temp.Split()[^1]);
+        Temperatures.Add(new Temperature(date, place, value));
+    }
+    catch
+    {
+        Console.WriteLine("Ошибка обработки строки");
     }
 }
