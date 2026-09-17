@@ -1,7 +1,4 @@
-﻿using System;
-using System.Globalization;
-
-namespace задание_1
+﻿namespace задание_1
 {
     public class Temperature
     {
@@ -12,7 +9,8 @@ namespace задание_1
         private int _x;
         private int _y;
 
-        public Temperature(DateOnly date, string place, double value, int x, int y) : this("temperature", date, place, value, x, y)
+        public Temperature(DateOnly date, string place, double value, int x, int y) 
+            : this("temperature", date, place, value, x, y)
         {
         }
 

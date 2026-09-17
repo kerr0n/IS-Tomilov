@@ -1,39 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Text;
-using задание_1;
+﻿using System.Globalization;
 
 namespace задание_1
 {
-    public class AllUsings
+    public class TemperatureStorage
     {
-        private List<Temperature> Temperatures = new List<Temperature>
-        {
-            //new Temperature(new DateOnly(2026, 1, 1), "Место 1", -5.0),
-            //new Temperature(new DateOnly(2026, 1, 2), "Место 2", -3.5),
-            //new Temperature(new DateOnly(2026, 1, 3), "Место 3", -2.0),
-            //new Temperature(new DateOnly(2026, 1, 4), "Место 4", -4.5),
-            //new Temperature(new DateOnly(2026, 1, 5), "Место 5", -6.0)
-        };
-        private string path = "C:\\all not basic\\Для учебы\\Проектирование информационных систем\\test.txt";
-
-
-
-
-
+        private List<Temperature> _temperatures = new List<Temperature>();
+        private string _path = "C:\\all not basic\\Для учебы\\Проектирование информационных систем\\test.txt";
 
         public void SaveListToFile()
         {
-            File.WriteAllLines(path, Temperatures.Select(temperature => temperature.ToString()));
+            File.WriteAllLines(_path, _temperatures.Select(temperature => temperature.ToString()));
         }
 
         public void LoadListFromFile()
         {
-            if (File.Exists(path))
+            if (File.Exists(_path))
             {
-                string[] lines = File.ReadAllLines(path);
-                Temperatures.Clear();
+                string[] lines = File.ReadAllLines(_path);
+                _temperatures.Clear();
                 FromStringToTemperature(lines.ToList());
             }
         }
@@ -68,20 +52,20 @@ namespace задание_1
                 {
                     "air" => new AirTemperature(date, place, value, x, y, double.Parse(numbers[3], CultureInfo.InvariantCulture)),
                     "water" => new WaterTemperature(date, place, value, x, y, double.Parse(numbers[3], CultureInfo.InvariantCulture)),
-                    _ => new Temperature(date, place, value, x, y)
+                    _ => throw new FormatException($"Неизвестный тип: {type}.")
                 };
 
-                Temperatures.Add(temperature);
+                _temperatures.Add(temperature);
             }
-            catch (Exception ex)
+            catch (Exception ex) when (ex is ArgumentException || ex is FormatException)
             {
-                Console.WriteLine($"Ошибка обработки строки «{temp}»: {ex.Message}");
+                Console.WriteLine($"Ошибка обработки строки «{temp}», {ex.Message}");
             }
         }
 
         public void PrintTemperatures()
         {
-            foreach (Temperature temperature in Temperatures)
+            foreach (Temperature temperature in _temperatures)
             {
                 Console.WriteLine(temperature.ToString());
             }

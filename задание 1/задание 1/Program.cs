@@ -1,22 +1,26 @@
 ﻿using задание_1;
 
-AllUsings allUsings = new AllUsings();
+TemperatureStorage temperatureStorage = new TemperatureStorage();
 
-allUsings.LoadListFromFile();
+temperatureStorage.LoadListFromFile();
 
 Console.WriteLine("exit для выхода");
 while (true)
 {
-    string str = Console.ReadLine();
+    string? str = Console.ReadLine();
     if (str == "exit")
     {
         break;    
     }
-    else // для примера 2008.04.30 "Место 6" 1,2
+    else if (string.IsNullOrWhiteSpace(str))
     {
-        allUsings.StringToTemperature(str);
+        Console.WriteLine("Пустая строка, попробуйте снова");
+    }
+    else
+    {
+        temperatureStorage.StringToTemperature(str);
     }
 }
 
-allUsings.PrintTemperatures();
-allUsings.SaveListToFile();
+temperatureStorage.PrintTemperatures();
+temperatureStorage.SaveListToFile();

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Globalization;
+﻿using System.Globalization;
 
 namespace задание_1
 {
@@ -7,7 +6,8 @@ namespace задание_1
     {
         private double _depth;
 
-        public WaterTemperature(DateOnly date, string place, double value, int x, int y, double depth) : base("water", date, place, value, x, y)
+        public WaterTemperature(DateOnly date, string place, double value, int x, int y, double depth) 
+            : base("water", date, place, value, x, y)
         {
             if (depth < 0)
             {
