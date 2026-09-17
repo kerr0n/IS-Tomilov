@@ -2,7 +2,7 @@
 
 TemperatureStorage temperatureStorage = new TemperatureStorage();
 
-temperatureStorage.LoadListFromFile();
+temperatureStorage.LoadListFromFile("C:\\all not basic\\Для учебы\\Проектирование информационных систем\\test.txt");
 
 Console.WriteLine("exit для выхода");
 while (true)
@@ -23,4 +23,4 @@ while (true)
 }
 
 temperatureStorage.PrintTemperatures();
-temperatureStorage.SaveListToFile();
+temperatureStorage.SaveListToFile("C:\\all not basic\\Для учебы\\Проектирование информационных систем\\test.txt");

@@ -5,18 +5,17 @@ namespace задание_1
     public class TemperatureStorage
     {
         private List<Temperature> _temperatures = new List<Temperature>();
-        private string _path = "C:\\all not basic\\Для учебы\\Проектирование информационных систем\\test.txt";
 
-        public void SaveListToFile()
+        public void SaveListToFile(string path)
         {
-            File.WriteAllLines(_path, _temperatures.Select(temperature => temperature.ToString()));
+            File.WriteAllLines(path, _temperatures.Select(temperature => temperature.ToString()));
         }
 
-        public void LoadListFromFile()
+        public void LoadListFromFile(string path)
         {
-            if (File.Exists(_path))
+            if (File.Exists(path))
             {
-                string[] lines = File.ReadAllLines(_path);
+                string[] lines = File.ReadAllLines(path);
                 _temperatures.Clear();
                 FromStringToTemperature(lines.ToList());
             }
@@ -32,7 +31,7 @@ namespace задание_1
                 }
             }
         }
-
+        
         public void StringToTemperature(string temp)
         {
             try
