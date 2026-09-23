@@ -7,7 +7,7 @@ namespace задание_1
 {
     public class ParseTemperature
     {
-        public Temperature Temperature { get; private set; }
+        public Temperature? Temperature { get; private set; }
         public bool ReadyToUse { get; private set; } = false;
         public ParseTemperature(string? input)
         {
