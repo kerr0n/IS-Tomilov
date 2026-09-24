@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Text;
 
-namespace задание_1
+namespace lab
 {
     public class ParseTemperature
     {

@@ -1,5 +1,5 @@
 ﻿using Xunit;
-using задание_1;
+using lab;
 
 namespace TemperatureTests
 {

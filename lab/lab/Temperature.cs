@@ -1,4 +1,4 @@
-﻿namespace задание_1
+﻿namespace lab
 {
     public class Temperature
     {

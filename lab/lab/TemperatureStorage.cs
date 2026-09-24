@@ -1,6 +1,6 @@
 ﻿using System.Globalization;
 
-namespace задание_1
+namespace lab
 {
     public class TemperatureStorage
     {

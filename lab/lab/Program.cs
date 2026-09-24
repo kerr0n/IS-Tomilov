@@ -1,4 +1,4 @@
-﻿using задание_1;
+﻿using lab;
 
 TemperatureStorage temperatureStorage = new TemperatureStorage();
 
