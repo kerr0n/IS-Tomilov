@@ -2,13 +2,27 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Text;
+using System.Diagnostics.CodeAnalysis;
 
 namespace lab
 {
     public class ParseTemperature
     {
         public Temperature? Temperature { get; private set; }
-        public bool ReadyToUse { get; private set; } = false;
+
+        [MemberNotNullWhen(true, nameof(Temperature))]
+        public bool ReadyToUse
+        {
+            get
+            {
+                return Temperature is not null;
+            }
+        }
+
+        /// <summary>
+        /// Преобразует string с объект Temperature и его наследников
+        /// </summary>
+        /// <param name="input"></param>
         public ParseTemperature(string? input)
         {
             try
@@ -24,7 +38,6 @@ namespace lab
                 int y = ParseCoordinate(numberParts[2], "y");
                 double extraValue = ParseExtraValue(type, numberParts);
                 Temperature = CreateTemperature(type, date, place, value, x, y, extraValue);
-                ReadyToUse = true;
             }
             catch (FormatException ex)
             {

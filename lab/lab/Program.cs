@@ -64,10 +64,14 @@ void UserInput()
         else if (string.IsNullOrWhiteSpace(str))
         {
             Console.WriteLine("Пустая строка, попробуйте снова");
+            Console.WriteLine("Нажмите любую клавишу для продолжения...");
+            Console.ReadKey();
         }
         else
         {
             temperatureStorage.StringToTemperature(str);
+            Console.WriteLine("Нажмите любую клавишу для продолжения...");
+            Console.ReadKey();
         }
     }
 }
