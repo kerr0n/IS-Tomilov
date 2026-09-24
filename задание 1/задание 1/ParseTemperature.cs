@@ -32,7 +32,6 @@ namespace задание_1
             }
         }
 
-//фукнции----------------------------------------------------------------------------------------------------------------------------------
         private static string ValidateInput(string? input)
         {
             if (string.IsNullOrWhiteSpace(input))
