@@ -26,8 +26,7 @@
 
         public override string ToString()
         {
-            return FormattableString.Invariant(
-                $"{_type} {_date:yyyy.MM.dd} \"{_place}\" {_value} {_x} {_y}");
+            return FormattableString.Invariant($"{_type} {_date:yyyy.MM.dd} \"{_place}\" {_value} {_x} {_y}");
         }
     }
 }
