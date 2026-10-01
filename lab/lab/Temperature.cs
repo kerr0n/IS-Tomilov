@@ -1,5 +1,8 @@
 ﻿namespace lab
 {
+    /// <summary>
+    /// Базовый класс для хранения информации о температуре
+    /// </summary>
     public class Temperature
     {
         private readonly string _type;

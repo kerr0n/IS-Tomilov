@@ -6,6 +6,9 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace lab
 {
+    /// <summary>
+    /// Класс для преобразования строки в объект Temperature и его наследников.
+    /// </summary>
     public class ParseTemperature
     {
         public Temperature? Temperature { get; private set; }
